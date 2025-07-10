@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Audífonos Ina",
+    "description": "Audio envolvente con cancelación de ruido.",
+    "price": "$49.99",
+    "status": "Disponible",
+    "buttonTheme": "green",
+    "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_923474-CBT74482567637_022024-O.webp"
+  },
+  {
+    "title": "Reloj Inteligente",
+    "description": "Monitor de ritmo cardíaco, sueño y más.",
+    "price": "$89.00",
+    "status": "Disponible",
+    "buttonTheme": "green",
+    "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.pZCGfp7AyXtuJRJaGOt89wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "title": "Teclado Mecánico",
+    "description": "Teclado retroiluminado para gamers exigentes.",
+    "price": "$59.95",
+    "status": "Sin stock",
+    "buttonTheme": "green",
+    "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.N8hz5EAexV--YjIPTjSlswHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "title": "Laptop ESPEBook",
+    "description": "Ideal para trabajo remoto y estudios que son importantes.",
+    "price": "$699.99",
+    "status": "Disponible",
+    "buttonTheme": "green",
+    "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.kSqQOjtXBVwzF-KvAAmkCgHaFa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "title": "Laptop ESPEBookkk",
+    "description": "Ideal para trabajo remoto y estudios.",
+    "price": "$699.99",
+    "status": "Disponible",
+    "buttonTheme": "green",
+    "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.kSqQOjtXBVwzF-KvAAmkCgHaFa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  }
+]
