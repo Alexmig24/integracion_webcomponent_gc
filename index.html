@@ -5,6 +5,9 @@
     <title>ESPE Header</title>
     <script type="module" src="src/components/espe-search-input.ts"></script>
     <script type="module" src="src/components/espe-header.ts"></script>
+    <script type="module" src="src/components/footer-carousel.js"></script>
+    <script type="module" src="src/components/espe-product-card.ts"></script>
+    <script type="module" src="src/layout/espe-layout.js"></script>
     <style>
       * {
         box-sizing: border-box;
@@ -26,18 +29,22 @@
     </style>
   </head>
   <body>
-    <espe-header
-      id="headerBar"
-      logoSrc="https://srvcas.espe.edu.ec/authenticationendpoint/images/Logo-MiESPE.png"
-      loginUrl="/login"
-      signupUrl="/register"
-    >
-      <espe-search-input slot="search" tema="claro"></espe-search-input>
-    </espe-header>
-
+    <espe-layout>
+      <!-- Productos -->
+      <!-- <section id="productos"> -->
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+        <espe-product-card></espe-product-card>
+      <!-- </section> -->
+    </espe-layout>
     <script>
       const search = document.querySelector("espe-search-input");
-      const cards = document.querySelectorAll("espe-course-card");
+      const cards = document.querySelectorAll("espe-product-card");
 
       // Set categories property on the header bar element
       const headerBar = document.getElementById("headerBar");
@@ -49,6 +56,8 @@
           { label: 'Secciones', link: '/secciones' }
         ];
       }
+      let valor = "";
+
 
       if (!valor) {
         cards.forEach((card) => (card.style.display = "block"));
@@ -69,6 +78,36 @@
           search.loading = false;
         }, 1000);
       });
+
+      fetch('products.json')
+      .then(res => res.json())
+      .then(productos => {
+      const contenedor = document.getElementById('productos');
+
+      productos.forEach(p => {
+        const card = document.createElement('espe-product-card');
+        card.title = p.title;
+        card.description = p.description;
+        card.price = p.price;
+        card.status = p.status;
+        card.buttonTheme = p.buttonTheme;
+        card.imageUrl = p.imageUrl;
+        contenedor.appendChild(card);
+      });
+    });
+
+    function filtrar(valor) {
+      const tarjetas = document.querySelectorAll('espe-product-card');
+      const valorLower = valor.toLowerCase();
+
+      tarjetas.forEach((tarjeta) => {
+        const titulo = tarjeta.title.toLowerCase();
+        const descripcion = tarjeta.description?.toLowerCase() || '';
+        
+        const coincide = titulo.includes(valorLower) || descripcion.includes(valorLower);
+        tarjeta.style.display = coincide ? 'block' : 'none';
+      });
+    }
     </script>
   </body>
 </html>
