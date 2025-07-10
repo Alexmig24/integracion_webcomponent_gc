@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ESPE Header</title>
+    <script type="module" src="src/components/espe-search-input.ts"></script>
+    <script type="module" src="src/components/espe-header.ts"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #414141;
+      }
+
+      .search-bar {
+        max-width: 600px;
+        margin: auto;
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <espe-header
+      id="headerBar"
+      logoSrc="https://srvcas.espe.edu.ec/authenticationendpoint/images/Logo-MiESPE.png"
+      loginUrl="/login"
+      signupUrl="/register"
+    >
+      <espe-search-input slot="search" tema="claro"></espe-search-input>
+    </espe-header>
+
+    <script>
+      const search = document.querySelector("espe-search-input");
+      const cards = document.querySelectorAll("espe-course-card");
+
+      // Set categories property on the header bar element
+      const headerBar = document.getElementById("headerBar");
+      if (headerBar) {
+        headerBar.categories = [
+          { label: 'Home', link: '/' },
+          { label: 'Categorías', link: '/categorias' },
+          { label: 'Materias', link: '/materias' },
+          { label: 'Secciones', link: '/secciones' }
+        ];
+      }
+
+      if (!valor) {
+        cards.forEach((card) => (card.style.display = "block"));
+      }
+
+      search.addEventListener("sugerencia-seleccionada", (e) => {
+        filtrar(e.detail.value);
+      });
+
+      search.addEventListener("input", (e) => {
+        filtrar(e.target.value);
+      });
+
+      search.addEventListener("buscar-enter", (e) => {
+        search.loading = true;
+        filtrar(e.detail.value);
+        setTimeout(() => {
+          search.loading = false;
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
