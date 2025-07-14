@@ -64,12 +64,10 @@ export class EspeLayout extends LitElement {
     }
 
     .content {
-      position: relative;
       flex: 1;
       padding: 20px 40px;
       gap: 20px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       align-items: center;
       justify-items: center;
@@ -90,26 +88,7 @@ export class EspeLayout extends LitElement {
         <div class="content">
           <slot></slot>
         </div>
-        <footer-carousel>
-          <img src="../img/img1.jpg"  alt="Producto 1">
-          <img src="../img/img2.jpg"  alt="Producto 2">
-          <img src="../img/img3.jpg"  alt="Producto 3">
-          <img src="../img/img4.jpg"  alt="Producto 4">
-          <img src="../img/img5.jpg"  alt="Producto 5">
-          <img src="../img/img6.jpg"  alt="Producto 6">
-          <img src="../img/img7.jpg"  alt="Producto 7">
-          <img src="../img/img8.jpg"  alt="Producto 8">
-          <img src="../img/img9.jpg"  alt="Producto 9">
-          <img src="../img/img10.jpg" alt="Producto 10">
-          <img src="../img/img11.jpg" alt="Producto 11">
-          <img src="../img/img12.jpg" alt="Producto 12">
-          <img src="../img/img13.jpg" alt="Producto 13">
-          <img src="../img/img14.jpg" alt="Producto 14">
-          <img src="../img/img15.jpg" alt="Producto 15">
-          <img src="../img/img16.jpg" alt="Producto 16">
-          <img src="../img/img17.jpg" alt="Producto 17">
-          <img src="../img/img18.jpg" alt="Producto 18">
-        </footer-carousel>
+        <footer-carousel id="footer-products"></footer-carousel>
       </div>
     `;
   };

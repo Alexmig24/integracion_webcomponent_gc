@@ -29,6 +29,16 @@
         margin-bottom: 2rem;
         width: 100%;
       }
+      section{
+        width: 100%;
+        flex: 1;
+        padding: 20px 40px;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        align-items: center;
+        justify-items: center;
+      }
     </style>
   </head>
 
@@ -95,17 +105,6 @@
             }, 1000);
           });
         }
-
-        // Asignar categorías al header si está disponible
-        const headerBar = layout.shadowRoot.querySelector("#headerBar");
-        if (headerBar) {
-          headerBar.categories = [
-            { label: 'Home', link: '/' },
-            { label: 'Categorías', link: '/categorias' },
-            { label: 'Materias', link: '/materias' },
-            { label: 'Secciones', link: '/secciones' }
-          ];
-        }
       });
 
       // Función de filtrado
@@ -120,6 +119,25 @@
           tarjeta.style.display = coincide ? "block" : "none";
         });
       }
+
+      window.addEventListener("DOMContentLoaded", () => {
+      const layout = document.querySelector("espe-layout");
+
+      const footerCarousel = layout.shadowRoot?.querySelector("#footer-products");
+
+      if (footerCarousel) {
+        fetch('products.json')
+          .then(res => res.json())
+          .then(imagenes => {
+            imagenes.forEach(img => {
+              const imageElement = document.createElement("img");
+              imageElement.src = img.imageUrl;
+              imageElement.alt = img.title;
+              footerCarousel.appendChild(imageElement);
+            });
+          });
+      }
+    });
     </script>
   </body>
 </html>

@@ -16,6 +16,7 @@ class FooterCarousel extends LitElement {
 
     .carousel {
       display: flex;
+      justify-content:center;
       gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;

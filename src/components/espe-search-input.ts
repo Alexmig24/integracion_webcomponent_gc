@@ -42,7 +42,6 @@ static styles = css`
 
   input {
     width: 100%;
-    height: 20px;
     padding: 10px 40px;
     border: 2px solid var(--color-border);
     border-radius: 10px;
@@ -51,6 +50,7 @@ static styles = css`
     background-color: var(--color-bg);
     color: var(--color-text);
     caret-color: var(--color-border);
+    box-sizing: border-box;
   }
 
   input::placeholder {
